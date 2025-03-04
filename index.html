@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Management App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="app-container">
+      <h1 class="app-title">Time Management App</h1>
+      
+      <!-- Tab Navigation -->
+      <div class="tab-navigation">
+        <button id="clockTab" class="tab-button active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Clock
+        </button>
+        <button id="timerTab" class="tab-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Timer
+        </button>
+        <button id="stopwatchTab" class="tab-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Stopwatch
+        </button>
+      </div>
+      
+      <!-- Sound Toggle -->
+      <div class="sound-toggle">
+        <button id="soundToggle" aria-label="Toggle sound">
+          <svg id="soundOnIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+          <svg id="soundOffIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+        </button>
+      </div>
+      
+      <!-- Content Area -->
+      <div class="content-area">
+        <!-- Digital Clock -->
+        <div id="clockContent" class="tab-content active">
+          <div class="digital-display">
+            <span id="hours" class="time-unit">00</span>
+            <span class="separator">:</span>
+            <span id="minutes" class="time-unit">00</span>
+            <span class="separator">:</span>
+            <span id="seconds" class="time-unit">00</span>
+          </div>
+          <p id="date" class="date-display">Monday, January 1, 2025</p>
+        </div>
+        
+        <!-- Timer -->
+        <div id="timerContent" class="tab-content">
+          <div id="timerSetup" class="timer-setup">
+            <div class="time-inputs">
+              <div class="time-input-group">
+                <label>Hours</label>
+                <input type="number" id="hoursInput" min="0" max="23" value="0">
+              </div>
+              <div class="time-input-group">
+                <label>Minutes</label>
+                <input type="number" id="minutesInput" min="0" max="59" value="0">
+              </div>
+              <div class="time-input-group">
+                <label>Seconds</label>
+                <input type="number" id="secondsInput" min="0" max="59" value="0">
+              </div>
+            </div>
+          </div>
+          
+          <div id="timerDisplay" class="digital-display hidden">
+            <span id="timerHours" class="time-unit">00</span>
+            <span class="separator">:</span>
+            <span id="timerMinutes" class="time-unit">00</span>
+            <span class="separator">:</span>
+            <span id="timerSeconds" class="time-unit">00</span>
+          </div>
+          
+          <div id="timerAlert" class="timer-alert hidden">
+            Time's up!
+          </div>
+          
+          <div class="control-buttons">
+            <button id="startTimer" class="control-button start-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Start
+            </button>
+            <button id="pauseTimer" class="control-button pause-button hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              Pause
+            </button>
+            <button id="resetTimer" class="control-button reset-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M3 2v6h6"></path><path d="M21 12A9 9 0 0 0 6 5.3L3 8"></path><path d="M21 22v-6h-6"></path><path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"></path></svg>
+              Reset
+            </button>
+          </div>
+        </div>
+        
+        <!-- Stopwatch -->
+        <div id="stopwatchContent" class="tab-content">
+          <div class="digital-display">
+            <span id="stopwatchMinutes" class="time-unit">00</span>
+            <span class="separator">:</span>
+            <span id="stopwatchSeconds" class="time-unit">00</span>
+            <span class="separator">.</span>
+            <span id="stopwatchMilliseconds" class="time-unit milliseconds">00</span>
+          </div>
+          
+          <div class="control-buttons">
+            <button id="startStopwatch" class="control-button start-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              Start
+            </button>
+            <button id="pauseStopwatch" class="control-button pause-button hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+              Pause
+            </button>
+            <button id="resetStopwatch" class="control-button reset-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M3 2v6h6"></path><path d="M21 12A9 9 0 0 0 6 5.3L3 8"></path><path d="M21 22v-6h-6"></path><path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"></path></svg>
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <footer class="app-footer">
+        <p>Created with HTML, CSS & JavaScript</p>
+      </footer>
+    </div>
+  </div>
+  
+  <audio id="alarmSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+  
+  <script src="script.js"></script>
+</body>
+</html>
