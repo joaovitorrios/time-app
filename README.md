@@ -15,11 +15,14 @@ Um relógio digital estilizado e responsivo, desenvolvido com **HTML, CSS e Java
 ✅ **Atualização automática a cada segundo** ⏳  
 ✅ **Responsivo para diferentes dispositivos** 📱💻  
 
-## 👨‍💻 Autor
+## 👨‍💻 Autor  
 
-📌 **João Vitor Rios**
-💼 **Desenvolvedor Full Stack**
-📧 **E-mail: joaovitorriosdev@gmail.com**
-🌎 **Portfólio: joaovitorriosdev.netlify.app**
-👔 **LinkedIn: linkedin.com/in/joaovitorrios**
+📌 **João Vitor Rios**  
 
+💼 **Desenvolvedor Full Stack**  
+
+📧 **E-mail:** [joaovitorriosdev@gmail.com](mailto:joaovitorriosdev@gmail.com)  
+
+🌎 **Portfólio:** [joaovitorriosdev.netlify.app](https://joaovitorriosdev.netlify.app)  
+
+👔 **LinkedIn:** [linkedin.com/in/joaovitorrios](https://www.linkedin.com/in/joaovitorrios/)  
